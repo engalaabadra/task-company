@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('main_lang')->default(config('app.locale'));
             $table->foreignId('translate_id')->nullable()->constrained('reviews', 'id')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->float('rating');
-            $table->longText('description')->nullable();
+            $table->longText('description');
             $table->date('deleted_at')->nullable();
             $table->timestamps();
         });

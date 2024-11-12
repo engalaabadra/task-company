@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Broadcast;
 use App\Http\Controllers\Dashboard\PaymentMethodController;
 use App\Http\Controllers\WEB\CheckoutController;
 use App\Http\Controllers\API\Auth\RegisterController as RegisterControllerApi;
+use App\Http\Controllers\WEB\ProductController;
+use App\Http\Controllers\WEB\ReviewController;
+
+Route::get('/products/update-product-status/{id}', [ProductController::class,'updateStatus']);
+Route::get('/products/show/{id}', [ProductController::class,'show']);
+Route::post('/reviews/store', [ReviewController::class,'store']);
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 // Route::get('/register',[RegisterController::class,'create'] )->name('register-form');
